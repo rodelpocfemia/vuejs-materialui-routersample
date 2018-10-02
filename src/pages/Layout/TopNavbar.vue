@@ -46,7 +46,8 @@
               <p class="hidden-lg hidden-md">Profile</p>
             </md-list-item>
           </md-list>
-          <router-link v-if="loggedIn" to="/logout">Log out</router-link>
+          <p v-if="loggedIn"><b>Welcome {{ this.$store.state.username }}  | </b></p>
+          <router-link v-if="loggedIn" to="/logout">  Logout</router-link>
           <router-link v-if="!loggedIn" to="/login">Log in</router-link>
         </div>
       </div>
@@ -61,6 +62,7 @@ export default{
   data () {
     return {
       loggedIn: auth.loggedIn(),
+      name: auth.getName(),
       selectedEmployee: null,
       employees: [
         'Jim Halpert',
@@ -80,9 +82,11 @@ export default{
     }
   },
   created () {
+    console.log('TobNavbar created')
     auth.onChange = loggedIn => {
       this.loggedIn = loggedIn
-    }
+    },
+    this.name = auth.getName()
   }
 }
 </script>

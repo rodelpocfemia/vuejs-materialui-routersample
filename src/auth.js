@@ -45,6 +45,12 @@ export default {
     return claims['name']
   },
 
+  getEmail () {
+    const claims = this.parseJwt(localStorage.idToken)
+    // console.jwt(localStorage.idToken)
+    return claims['email']
+  },
+
   parseJwt (token) {
     const base64Url = token.split('.')[1]
     const base64 = base64Url.replace('-', '+').replace('_', '/')

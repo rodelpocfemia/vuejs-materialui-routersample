@@ -65,9 +65,11 @@ import auth from '../auth'
           if (!loggedIn) {
             this.error = true
           } else {
-            this.$router.replace(this.$route.query.redirect || '/')
+            this.$router.replace(this.$route.query.redirect || '/')  
+            this.$store.commit('changeName', auth.getName())
+                      
           }
-        })
+        })        
       }
     }
   }
