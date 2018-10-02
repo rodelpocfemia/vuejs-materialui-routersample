@@ -17,7 +17,6 @@ import Notifications from './components/NotificationPlugin'
 import MaterialDashboard from './material-dashboard'
 
 import Chartist from 'chartist'
-import Axios from 'axios';
 
 //fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -27,8 +26,6 @@ library.add(faCoffee)
 library.add(faAddressBook)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-Vue.prototype.$http = axios
-Axios.defaults.headers.common.Accept = 'application/json'
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes

@@ -11,6 +11,8 @@ import TestPage from '@/pages/TestPage.vue'
 import ecpoffers from '@/pages/ecpoffers.vue'
 import ecpoffersdetails from '@/pages/ecpoffersdetails.vue'
 import UpgradeToPRO from '@/pages/UpgradeToPRO.vue'
+import Login from '@/pages/Login.vue'
+import auth from '../auth'
 
 const routes = [
   {
@@ -60,25 +62,52 @@ const routes = [
       {
         path: 'ecpoffers',
         name: 'ECP One Portal Offers',
-        component: ecpoffers        
+        component: ecpoffers,
+        beforeEnter: requireAuth        
       },
       {
         path: 'ecpoffers/:id',
         name: 'ECP One Portal Offers Details',
-        component: ecpoffersdetails        
+        component: ecpoffersdetails,
+        beforeEnter: requireAuth        
       },
       {
         path: 'testpage',
         name: 'TestPage',
-        component: TestPage
+        component: TestPage,
+        beforeEnter: requireAuth
       },
       {
         path: 'upgrade',
         name: 'Upgrade to PRO',
         component: UpgradeToPRO
+      },
+      {
+        path: 'Login',
+        name: 'Login',
+        component: Login
+      },
+      {
+        path: 'logout',
+        beforeEnter (to, from, next) {
+          auth.logout()
+          next('/')
+        }
       }
     ]
   }
 ]
 
 export default routes
+
+function requireAuth (to, from, next) {
+  if (!auth.loggedIn()) {
+    next({
+      path: 'Login',
+      name: 'Login',
+      query: { redirect: to.fullPath }
+    })
+  } else {
+    next()
+  }
+}

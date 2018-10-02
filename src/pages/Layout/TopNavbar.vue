@@ -11,7 +11,8 @@
           <span class="icon-bar"></span>
         </md-button>
 
-        <div class="md-collapse">
+        <div class="md-collapse">         
+
           <div class="md-autocomplete">
             <md-autocomplete class="search" v-model="selectedEmployee" :md-options="employees">
               <label>Search...</label>
@@ -45,6 +46,8 @@
               <p class="hidden-lg hidden-md">Profile</p>
             </md-list-item>
           </md-list>
+          <router-link v-if="loggedIn" to="/logout">Log out</router-link>
+          <router-link v-if="!loggedIn" to="/login">Log in</router-link>
         </div>
       </div>
     </div>
@@ -53,10 +56,11 @@
 </template>
 
 <script>
-
+import auth from '../../auth'
 export default{
   data () {
     return {
+      loggedIn: auth.loggedIn(),
       selectedEmployee: null,
       employees: [
         'Jim Halpert',
@@ -73,6 +77,11 @@ export default{
   methods: {
     toggleSidebar () {
       this.$sidebar.displaySidebar(!this.$sidebar.showSidebar)
+    }
+  },
+  created () {
+    auth.onChange = loggedIn => {
+      this.loggedIn = loggedIn
     }
   }
 }

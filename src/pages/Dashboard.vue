@@ -109,6 +109,7 @@
           </template>
         </stats-card>
       </div>
+
       <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="red">
           <template  slot="header">
@@ -128,6 +129,7 @@
           </template>
         </stats-card>
       </div>
+
       <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="blue">
           <template  slot="header">
@@ -147,6 +149,7 @@
           </template>
         </stats-card>
       </div>
+
       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
         <md-card>
           <md-card-header data-background-color="orange">
@@ -158,6 +161,7 @@
           </md-card-content>
         </md-card>
       </div>
+
       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
         <nav-tabs-card>
           <template slot="content">
@@ -179,6 +183,7 @@
           </template>
         </nav-tabs-card>
       </div>
+      
     </div>
   </div>
 </template>

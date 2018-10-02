@@ -3,7 +3,7 @@
     <notifications></notifications>
 
     <side-bar>
-      <mobile-menu slot="content"></mobile-menu>
+      <mobile-menu slot="content"></mobile-menu>     
       <sidebar-link to="/dashboard">
         <md-icon>dashboard</md-icon>
         <p>Dashboard</p>
