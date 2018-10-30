@@ -28,22 +28,26 @@ const routes = [
       {
         path: 'user',
         name: 'User Profile',
-        component: UserProfile
+        component: UserProfile,
+        beforeEnter: requireAuth
       },
       {
         path: 'table',
         name: 'Table List',
-        component: TableList
+        component: TableList,
+        beforeEnter: requireAuth
       },
       {
         path: 'typography',
         name: 'Typography',
-        component: Typography
+        component: Typography,
+        beforeEnter: requireAuth
       },
       {
         path: 'icons',
         name: 'Icons',
-        component: Icons
+        component: Icons,
+        beforeEnter: requireAuth
       },
       {
         path: 'maps',
@@ -51,13 +55,14 @@ const routes = [
         meta: {
           hideFooter: true
         },
-        component: Maps
-
+        component: Maps,
+        beforeEnter: requireAuth
       },
       {
         path: 'notifications',
         name: 'Notifications',
-        component: Notifications
+        component: Notifications,
+        beforeEnter: requireAuth
       },
       {
         path: 'ecpoffers',

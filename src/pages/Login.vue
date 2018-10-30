@@ -66,8 +66,7 @@ import auth from '../auth'
             this.error = true
           } else {
             this.$router.replace(this.$route.query.redirect || '/')  
-            this.$store.commit('changeName', auth.getName())
-                      
+            this.$store.commit('changeName', auth.getName())                      
           }
         })        
       }
